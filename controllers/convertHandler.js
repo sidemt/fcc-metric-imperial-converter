@@ -10,7 +10,7 @@ function ConvertHandler() {
   
   this.getNum = function(input) {
     var result;
-    const regex = /[^\d\.\/]/g // characters except for digits or . or /
+    const regex = /[^\d\.\/]+/g // characters except for digits or . or /
     
     var index = input.search(regex);
     
@@ -29,10 +29,12 @@ function ConvertHandler() {
   
   this.getUnit = function(input) {
     var result;
-    const regex = /[^\d\.\/]/g // characters except for digits or . or /
+    const regex = /[^\d\.\/]+/g // characters except for digits or . or /
     
-    result = input.match(regex);
+    var index = input.search(regex);
     
+    console.log('getUnit: ', result);
+    result = input.slice(index);
     return result;
   };
   
@@ -103,7 +105,6 @@ function ConvertHandler() {
     switch (initUnit) {
       case 'L':
         result = initNum / galToL;
-        result = 'gal';
         break;
       case 'gal':
         result = initNum * galToL;
@@ -124,13 +125,20 @@ function ConvertHandler() {
         result = 'invalid unit';
     }
     
+    console.log('result: ', result);
+    
+    // round to 5 decimals
+    if (result != 'invalid unit') {
+      Math.round(result, 5);
+    }
+    
     return result;
   };
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
     
-    result = initNum + ' ' + initUnit + ' converts to ' + returnNum + ' ' + returnUnits
+    result = initNum + ' ' + initUnit + ' converts to ' + returnNum + ' ' + returnUnit
     
     return result;
   };
