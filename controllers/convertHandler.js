@@ -86,7 +86,7 @@ function ConvertHandler() {
         result = 'miles';
         break;
       default:
-        console.error('invalid unit');
+        esult = 'invalid unit';
     }
     
     return result;
@@ -100,23 +100,23 @@ function ConvertHandler() {
     
     switch (initUnit) {
       case 'L':
-        
+        result = initNum / galToL;
         result = 'gal';
         break;
       case 'gal':
         result = initNum * galToL;
         break;
       case 'kg':
-        result = 'lbs';
+        result = initNum / lbsToKg;
         break;
       case 'lbs':
-        result = 'kg';
+        result = initNum * lbsToKg;
         break;
       case 'km':
-        result = 'mi';
+        result = initNum / miToKm;
         break;
       case 'mi':
-        result = 'km';
+        result = initNum * miToKm;
         break;
       default:
         result = 'invalid unit';
