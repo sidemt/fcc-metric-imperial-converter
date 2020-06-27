@@ -27,11 +27,16 @@ module.exports = function (app) {
       console.log('input', input);
       
       //res.json
-      res.json({ "initNum": initNum,
+      if (toString.indexOf('invalid') < 0) {
+              res.json({ "initNum": initNum,
                  "initUnit": initUnit,
                  "returnNum": returnNum,
                  "returnUnit": returnUnit,
                  "string": toString });
+      } else {
+        res.json({"error": toString });
+      }
+
     });
     
 };
