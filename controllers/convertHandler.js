@@ -12,7 +12,7 @@ function ConvertHandler() {
     var result;
     const regex = /^\d/g
     
-    result = Ninput.match(regex)
+    result = input.match(regex);
     
     return result;
   };
