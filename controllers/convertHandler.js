@@ -29,11 +29,47 @@ function ConvertHandler() {
   this.getReturnUnit = function(initUnit) {
     var result;
     
+    switch (initUnit) {
+      case 'gal':
+        result = 'L';
+        break;
+      case 'lbs':
+        result = 'kg';
+        break;
+      case 'mi':
+        result = 'km';
+        break;
+      default:
+        console.error('invalid unit');
+    }
+    
     return result;
   };
 
   this.spellOutUnit = function(unit) {
     var result;
+    
+    switch (unit) {
+      case 'L':
+        result = 'L';
+        break;
+      case 'gal':
+        result = 'L';
+        break;
+      case 'kg':
+        result = 'L';
+        break;
+      case 'lbs':
+        result = 'kg';
+        break;
+      case 'km':
+        break;
+      case 'mi':
+        result = 'km';
+        break;
+      default:
+        console.error('invalid unit');
+    }
     
     return result;
   };
