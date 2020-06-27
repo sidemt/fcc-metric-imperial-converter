@@ -39,9 +39,15 @@ function ConvertHandler() {
     
     var index = input.search(regex);
     
-    console.log('getUnit: ', result);
     result = input.slice(index);
-    return result;
+    
+    const valid_units = ['gal','l','mi','km','lbs','kg'];
+    if (valid_units.includes(result.toLowerCase())) {
+      return result;
+    } else {
+      return 'invalid unit';
+    }
+    
   };
   
   this.getReturnUnit = function(initUnit) {

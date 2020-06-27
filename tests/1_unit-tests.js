@@ -65,7 +65,7 @@ suite('Unit Tests', function(){
       var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       input.forEach(function(ele) {
         //assert
-        assert.equal(convertHandler.getUnit(input), ele);
+        assert.equal(convertHandler.getUnit('1' + ele), ele);
       });
       done();
     });
