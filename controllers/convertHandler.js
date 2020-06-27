@@ -15,7 +15,9 @@ function ConvertHandler() {
     var index = input.search(regex);
     
     var number_str = input.slice(0, index);
-    if (number_str.indexOf('/') >= 0){
+    if (number_str.length == 0) {
+      result = 1; // if nothing is provided it defaults to 1
+    } else if (number_str.indexOf('/') >= 0){
       var arr = number_str.split('/');
       result = parseFloat(arr[0]) / parseFloat(arr[1]);
     } else {
@@ -127,6 +129,8 @@ function ConvertHandler() {
   
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
+    
+    result = initNum + ' ' + initUnit + ' converts to ' + returnNum + ' ' + returnUnits
     
     return result;
   };
