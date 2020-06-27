@@ -152,7 +152,15 @@ function ConvertHandler() {
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
     
-    result = initNum + ' ' + initUnit + ' converts to ' + returnNum + ' ' + returnUnit
+    if (initNum === 'invalid number' && initUnit === 'invalid unit' ) {
+      result = 'invalid number and unit';
+    } else if (initNum === 'invalid number') {
+      result = 'invalid number';
+    } else if (initUnit === 'invalid unit') {
+      result = 'invalid unit';
+    } else {
+      result = initNum + ' ' + initUnit + ' converts to ' + returnNum + ' ' + returnUnit;
+    }
     
     return result;
   };
