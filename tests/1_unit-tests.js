@@ -37,20 +37,23 @@ suite('Unit Tests', function(){
     });
     
     test('Fractional Input w/ Decimal', function(done) {
-      var input = '1.5/2';
+      var input = '1.5/2L';
       assert.equal(convertHandler.getNum(input), 0.75);
       done();
       //done();
     });
     
     test('Invalid Input (double fraction)', function(done) {
-      var input = '3/2/1/2';
+      var input = '3/2/1/2L';
       assert.equal(convertHandler.getNum(input), 'invalid number');
+      done();
       //done();
     });
     
     test('No Numerical Input', function(done) {
-      
+      var input = 'L';
+      assert.equal(convertHandler.getNum(input), 1);
+      done();
       //done();
     }); 
     
@@ -62,12 +65,15 @@ suite('Unit Tests', function(){
       var input = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
       input.forEach(function(ele) {
         //assert
+        assert.equal(convertHandler.getUnit(input), ele);
       });
       done();
     });
     
     test('Unknown Unit Input', function(done) {
-      
+      var input = 'unknown';
+      assert.equal(convertHandler.getUnit(input), 'invalid unit');
+      done();
       //done();
     });  
     
@@ -90,6 +96,8 @@ suite('Unit Tests', function(){
     
     test('For Each Valid Unit Inputs', function(done) {
       //see above example for hint
+      var input = ['gal','l','mi','km','lbs','kg'];
+      var expect = ['gallons','liters','miles','kilometers','pounds','kilograms'];
       done();
     });
     
@@ -105,7 +113,7 @@ suite('Unit Tests', function(){
     });
     
     test('L to Gal', function(done) {
-      
+      var input = [5, '']
       //done();
     });
     

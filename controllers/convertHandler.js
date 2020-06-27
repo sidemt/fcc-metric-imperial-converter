@@ -41,12 +41,14 @@ function ConvertHandler() {
   this.getReturnUnit = function(initUnit) {
     var result;
     
+    initUnit = initUnit.toLowerCase();
+    
     switch (initUnit) {
-      case 'L':
+      case 'l': // lower case
         result = 'gal';
         break;
       case 'gal':
-        result = 'L';
+        result = 'l';
         break;
       case 'kg':
         result = 'lbs';
@@ -71,7 +73,7 @@ function ConvertHandler() {
     var result;
     
     switch (unit) {
-      case 'L':
+      case 'l':
         result = 'liters';
         break;
       case 'gal':
@@ -90,7 +92,7 @@ function ConvertHandler() {
         result = 'miles';
         break;
       default:
-        esult = 'invalid unit';
+        result = 'invalid unit';
     }
     
     return result;
@@ -103,7 +105,7 @@ function ConvertHandler() {
     var result;
     
     switch (initUnit) {
-      case 'L':
+      case 'l':
         result = initNum / galToL;
         break;
       case 'gal':
