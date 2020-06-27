@@ -27,12 +27,11 @@ module.exports = function (app) {
       console.log('input', input);
       
       //res.json
-      // res.json({ "initNum": initNum,
-      //            "initUnit": initUnit,
-      //            "returnNum": returnNum,
-      //            "returnUnit": returnUnit,
-      //            "string": toString });
-      res.json({ "input":  });
+      res.json({ "initNum": initNum,
+                 "initUnit": initUnit,
+                 "returnNum": returnNum,
+                 "returnUnit": returnUnit,
+                 "string": toString });
     });
     
 };

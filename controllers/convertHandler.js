@@ -10,12 +10,18 @@ function ConvertHandler() {
   
   this.getNum = function(input) {
     var result;
+    const regex = /^\d/g
+    
+    result = Ninput.match(regex)
     
     return result;
   };
   
   this.getUnit = function(input) {
     var result;
+    const regex = /\D+$/g
+    
+    result = input.match(regex);
     
     return result;
   };
