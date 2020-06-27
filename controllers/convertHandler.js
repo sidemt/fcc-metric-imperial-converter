@@ -10,16 +10,19 @@ function ConvertHandler() {
   
   this.getNum = function(input) {
     var result;
-    const regex = /[^\d\.\/]/g // characters except for any
+    const regex = /[^\d\.\/]/g // characters except for digits or . or /
     
-    result = input.indexOf(regex);
+    var index = input.search(regex);
+    
+    
+    result = input.slice(0, index);
     
     return result;
   };
   
   this.getUnit = function(input) {
     var result;
-    const regex = /\D+$/g
+    const regex = /[^\d\.\/]/g // characters except for digits or . or /
     
     result = input.match(regex);
     
@@ -89,6 +92,30 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     var result;
+    
+    switch (initUnit) {
+      case 'L':
+        
+        result = 'gal';
+        break;
+      case 'gal':
+        result = initNum * galToL;
+        break;
+      case 'kg':
+        result = 'lbs';
+        break;
+      case 'lbs':
+        result = 'kg';
+        break;
+      case 'km':
+        result = 'mi';
+        break;
+      case 'mi':
+        result = 'km';
+        break;
+      default:
+        result = 'invalid unit';
+    }
     
     return result;
   };
