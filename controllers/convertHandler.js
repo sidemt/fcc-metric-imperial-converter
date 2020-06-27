@@ -14,8 +14,13 @@ function ConvertHandler() {
     
     var index = input.search(regex);
     
-    
-    result = input.slice(0, index);
+    var number_str = input.slice(0, index);
+    if (number_str.indexOf('/') >= 0){
+      var arr = number_str.split('/');
+      result = parseFloat(arr[0]) / parseFloat(arr[1]);
+    } else {
+      result = Number.parseFloat(number_str);
+    }
     
     return result;
   };
