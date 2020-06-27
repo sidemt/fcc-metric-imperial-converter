@@ -19,7 +19,13 @@ function ConvertHandler() {
       result = 1; // if nothing is provided it defaults to 1
     } else if (number_str.indexOf('/') >= 0){
       var arr = number_str.split('/');
-      result = parseFloat(arr[0]) / parseFloat(arr[1]);
+      if (arr.length == 2){
+        // given number is a fraction
+        result = parseFloat(arr[0]) / parseFloat(arr[1]);
+      } else {
+        // given number contains 2 or more '/''
+        result = 'invalid number';
+      }
     } else {
       result = Number.parseFloat(number_str);
     }
